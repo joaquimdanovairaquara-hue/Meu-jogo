@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jogo de Clique</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+    }
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Pontos: <span id="score">0</span></h1>
+<div id="box"></div>
+
+<script>
+  let score = 0;
+  const box = document.getElementById("box");
+
+  function moveBox() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+    box.style.left = x + "px";
+    box.style.top = y + "px";
+  }
+
+  box.onclick = () => {
+    score++;
+    document.getElementById("score").innerText = score;
+    moveBox();
+  };
+
+  setInterval(moveBox, 1000);
+</script>
+
+</body>
+</html>
